@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="description" content="PWA de apresentação pessoal com suporte offline via Service Worker." />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/icon-192.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Portfólio PWA — Gustavo Dev</title>
+</head>
+<body>
+  <header class="hero">
+    <nav>
+      <strong>Gustavo.dev</strong>
+      <span id="status" class="status">Verificando conexão...</span>
+    </nav>
+    <div class="hero-content">
+      <div>
+        <p class="eyebrow">DESENVOLVEDOR DE SOFTWARE</p>
+        <h1>Aplicações modernas que também funcionam <span>off-line.</span></h1>
+        <p class="lead">Esta página é uma Progressive Web Application criada para demonstrar o uso de Service Worker, cache e funcionamento sem internet.</p>
+        <a class="button" href="#projeto">Conhecer o projeto</a>
+      </div>
+      <img src="assets/developer.svg" alt="Ilustração de um desenvolvedor trabalhando" />
+    </div>
+  </header>
+
+  <main>
+    <section id="projeto" class="section">
+      <div class="section-title">
+        <p class="eyebrow">SOBRE A APLICAÇÃO</p>
+        <h2>Uma apresentação web transformada em PWA</h2>
+      </div>
+      <div class="cards">
+        <article class="card"><span>01</span><h3>Responsiva</h3><p>O layout se adapta a computadores, tablets e celulares.</p></article>
+        <article class="card"><span>02</span><h3>Instalável</h3><p>O arquivo manifest fornece nome, ícones, cores e modo de exibição da aplicação.</p></article>
+        <article class="card"><span>03</span><h3>Off-line</h3><p>Os principais arquivos ficam armazenados em cache pelo Service Worker.</p></article>
+      </div>
+    </section>
+
+    <section class="section feature">
+      <div>
+        <p class="eyebrow">SERVICE WORKER</p>
+        <h2>O intermediário entre a aplicação e a rede</h2>
+        <p>Durante a instalação, o Service Worker salva os arquivos essenciais. Quando a página solicita um recurso, o evento <code>fetch</code> procura primeiro uma resposta adequada e permite usar o cache quando a rede não está disponível.</p>
+        <p>O projeto também usa o evento <code>activate</code> para remover versões antigas do cache.</p>
+      </div>
+      <div class="flow">
+        <div>Navegador</div><b>→</b><div>Service Worker</div><b>→</b><div>Cache / Rede</div>
+      </div>
+    </section>
+
+    <section class="section test">
+      <p class="eyebrow">TESTE OFF-LINE</p>
+      <h2>Como comprovar que funciona</h2>
+      <ol>
+        <li>Abra o projeto usando um servidor local em <strong>localhost</strong>.</li>
+        <li>Abra o DevTools → Application → Service Workers e confirme que o worker está ativado.</li>
+        <li>Recarregue a página uma vez para garantir que os arquivos foram armazenados.</li>
+        <li>Em DevTools → Network, marque <strong>Offline</strong> e atualize a página.</li>
+        <li>A página continuará sendo exibida usando os arquivos salvos no cache.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    Trabalho acadêmico — Progressive Web Application com Service Worker.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
